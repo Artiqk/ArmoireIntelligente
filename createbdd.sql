@@ -39,10 +39,6 @@ CREATE TABLE `logs` (
   `updatedAt` datetime NOT NULL
 );
 
-ALTER TABLE `etat_armoire` ADD FOREIGN KEY (`armoire_id`) REFERENCES `armoire` (`id`);
-
-ALTER TABLE `logs` ADD FOREIGN KEY (`armoire_id`) REFERENCES `armoire` (`id`);
-
 ALTER TABLE `logs` ADD FOREIGN KEY (`user`) REFERENCES `users` (`username`);
 
 ALTER TABLE `armoire_stock` ADD FOREIGN KEY (`stock_id`) REFERENCES `armoire` (`ifa_id`);
