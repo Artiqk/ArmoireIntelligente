@@ -1,20 +1,56 @@
-div {
-    margin-bottom: 5rem;
+@font-face {
+    font-family: 'Roboto-Thin';
+    src: url("/Roboto-Thin.ttf");
 }
+
+
+h1 {
+    font-family: 'Roboto-Thin';
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+
+input {
+    width: 30%;
+    height: 5rem;
+    margin-bottom: 5%;
+    font-family: 'Roboto-Thin';
+    font-size: 2rem;
+}
+
 
 div.update_form {
     text-align: center;
 }
 
 
-div.first_row {
-    display: block;
+div.first_row, div.second_row, div.third_row {
+    display: flex;
+    justify-content: space-around;
 }
 
-div.second_row {
-    display: block;
+
+::placeholder {
+    font-family: 'Roboto-Thin';
+    font-size: 80%;
 }
 
-div.third_row {
-    display: block;
+
+button {
+    background-color: #32CD32;
+    font-family: 'Roboto-Thin';
+    font-size: 2rem;
+    border-style: none;
+    width: 25%;
+    height: 3rem;
+    transition-duration: 0.4s;
+}
+
+
+button:hover {
+    background-color: #28b828;
+    color: white;
+    box-shadow: 0 6px 10px 0 rgba(0,0,0,0.24);
+    cursor: pointer;
 }
