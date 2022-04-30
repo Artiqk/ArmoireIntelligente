@@ -1,3 +1,13 @@
+CREATE DATABASE `armoire_intelligente`;
+
+CREATE USER `webAdmin`@localhost IDENTIFIED BY `password`;
+
+GRANT ALL PRIVILEGES ON *.* TO `webAdmin`@localhost IDENTIFIED BY `password`;
+
+FLUSH PRIVILEGES;
+
+USE `armoire_intelligente`;
+
 CREATE TABLE `armoire` (
   `ifa_id` varchar(255) PRIMARY KEY NOT NULL,
   `id` int NOT NULL,
