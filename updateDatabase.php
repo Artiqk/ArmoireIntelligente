@@ -1,21 +1,24 @@
 <?php
 
-$armoireID = htmlspecialchars($_POST['armoire_id']);
-$floorID = htmlspecialchars($_POST['floor_id']);
+$postData = array('armoire_id', 'floor_id', 'area_id', 'sensor_type', 'component', 'restock_quantity');
 
-$areaID = htmlspecialchars($_POST['area_id']);
-$sensorType = htmlspecialchars($_POST['sensor_type']);
+$error = false;
+$prefix = '?';
+$getParams = "";
 
-$component = htmlspecialchars($_POST['component']);
-$restockQuantity = htmlspecialchars($_POST['restock_quantity']);
+foreach($postData as $data) {
+    if (empty($_POST[$data])) {
+        $error = true;
+        $getParams .= $prefix . $data . "=error";
+    } else {
+        $getParams .= $prefix . $data . "=" . $_POST[$data];
+    }
 
+    $prefix = '&';
+}
 
-echo 'N°Armoire : ' . $armoireID . '<br>';
-echo 'N°Etage : ' . $floorID . '<br>';
-echo 'N°Zone : ' . $areaID . '<br>';
-echo 'Type de capteur : ' . $sensorType . '<br>';
-echo 'Composant : ' . $component . '<br>';
-echo 'Quantité de restock : ' . $restockQuantity . '<br>';
-
+if ($error) {
+    header("Location: index.php$getParams");
+}
 
 ?>
