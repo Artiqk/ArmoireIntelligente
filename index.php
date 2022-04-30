@@ -8,15 +8,17 @@
         </style>
     </head>
     <body>
+        <?php require_once('./addDropdownMenu.php'); ?>
+
         <h1>Administration Page</h1>
         <form action="updateDatabase.php" method="POST">
             <div class="update_form">
                 <div class="first_row">
-                    <input name="armoire_id" id="armoire_id" placeholder="Numéro de l'armoire">
-                    <input name="floor_id" id="floor_id" placeholder="Numéro de l'étagère">
+                    <select name="armoire_id" id="armoire_id"> <?php addMenu(10); ?> </select>
+                    <select name="floor_id" id="floor_id"> <?php include addMenu(3); ?> </select>
                 </div>
                 <div class="second_row">
-                    <input name="area_id" id="area_id" placeholder="Numéro de la zone">
+                    <select name="area_id" id="area_id"> <?php include addMenu(4); ?> </select>
                     <select name="sensor_type" id="sensor_type">
                         <option value="force"> Capteur de force </option>
                         <option value="distance"> Capteur de distance </option>
