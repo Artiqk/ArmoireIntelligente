@@ -1,6 +1,6 @@
 <?php
     function addMenu ($max) {
-        for ($i = 0; $i < $max; $i++) {
+        for ($i = 1; $i <= $max; $i++) {
             echo '<option value=' . $i . '>' . $i . '</option>';
         }
     }
