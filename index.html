@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Admin Web Page</title>
+        <link href="./css/styles.css" rel="stylesheet">
+    </head>
+    <body>
+        <form action="updateDatabase.php" method="POST">
+            <div class="update_form">
+                <div class="first_row">
+                    <label>Numéro de l'armoire</label>
+                    <input name="armoire_id" id="armoire_id">
+
+                    <label>Numéro de l'étagère</label>
+                    <input name="floor_id" id="floor_id">
+                </div>
+
+                <div class="second_row">
+                    <label>Numéro de la zone</label>
+                    <input name="area_id" id="area_id">
+
+                    <label>Type de capteur</label>
+                    <input name="sensor_type" id="sensor_type">
+                </div>
+
+                <div class="third_row">
+                    <label>Composant</label>
+                    <input name="component" id="component">
+
+                    <label>Quantité de restock</label>
+                    <input name="restock_quantity" id="restock_quantity">
+                </div>
+
+                <div class="update">
+                    <button>Mettre à jour la BDD</button>
+                </div>
+            </div>
+        </form>
+    </body>
+</html>

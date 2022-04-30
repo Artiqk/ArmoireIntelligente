@@ -1,0 +1,20 @@
+div {
+    margin-bottom: 5rem;
+}
+
+div.update_form {
+    text-align: center;
+}
+
+
+div.first_row {
+    display: block;
+}
+
+div.second_row {
+    display: block;
+}
+
+div.third_row {
+    display: block;
+}
