@@ -42,3 +42,5 @@ CREATE TABLE `logs` (
 ALTER TABLE `logs` ADD FOREIGN KEY (`user`) REFERENCES `users` (`username`);
 
 ALTER TABLE `armoire_stock` ADD FOREIGN KEY (`stock_id`) REFERENCES `armoire` (`ifa_id`);
+
+ALTER TABLE `armoire` ADD UNIQUE (ifa_id);
