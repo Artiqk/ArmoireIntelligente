@@ -6,6 +6,7 @@
         <style>
             <?php include 'updateFormStyle.php'; ?>
         </style>
+        <script src="autoFillForm.js"></script>
     </head>
     <body>
         <h1>Administration Page</h1>
