@@ -11,7 +11,7 @@ h1 {
 }
 
 
-input {
+input, select {
     width: 30%;
     height: 5rem;
     margin-bottom: 5%;

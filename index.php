@@ -3,6 +3,9 @@
     <head>
         <title>Admin Web Page</title>
         <link href="./css/styles.css" rel="stylesheet">
+        <style>
+            <?php include 'updateFormStyle.php'; ?>
+        </style>
     </head>
     <body>
         <h1>Administration Page</h1>
@@ -14,7 +17,10 @@
                 </div>
                 <div class="second_row">
                     <input name="area_id" id="area_id" placeholder="Numéro de la zone">
-                    <input name="sensor_type" id="sensor_type" placeholder="Type de capteur">
+                    <select name="sensor_type" id="sensor_type">
+                        <option value="force"> Capteur de force </option>
+                        <option value="distance"> Capteur de distance </option>
+                    </select>
                 </div>
                 <div class="third_row">
                     <input name="component" id="component" placeholder="Composant">
