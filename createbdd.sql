@@ -1,10 +1,8 @@
 CREATE DATABASE `armoire_intelligente`;
 
-CREATE USER `webAdmin`@localhost IDENTIFIED BY `password`;
+CREATE USER 'webAdmin'@localhost IDENTIFIED BY 'password';
 
-GRANT ALL PRIVILEGES ON *.* TO `webAdmin`@localhost IDENTIFIED BY `password`;
-
-FLUSH PRIVILEGES;
+GRANT ALL PRIVILEGES ON *.* TO 'webAdmin'@localhost IDENTIFIED BY 'password';
 
 USE `armoire_intelligente`;
 
