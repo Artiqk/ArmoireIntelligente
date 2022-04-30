@@ -15,7 +15,7 @@
         <form action="updateDatabase.php" method="POST">
             <div class="update_form">
                 <div class="first_row">
-                    <select name="armoire_id" id="armoire_id"> <?php addMenu(10); ?> </select>
+                    <select name="armoire_id" id="armoire_id"> <?php addMenu(10); ?> </select> <!-- FIXME - DRY Add to PHP function -->
                     <select name="floor_id" id="floor_id"> <?php include addMenu(3); ?> </select>
                 </div>
 
