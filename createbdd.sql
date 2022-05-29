@@ -8,12 +8,12 @@ USE `armoire_intelligente`;
 
 CREATE TABLE `armoire_info` (
   `stock_id` varchar(255) PRIMARY KEY NOT NULL,
-  `armoire_id` int NOT NULL,
-  `floor_id` int NOT NULL,
-  `area_id` int NOT NULL,
+  `armoire` int NOT NULL,
+  `floor` int NOT NULL,
+  `area` int NOT NULL,
   `sensorType` varchar(255) NOT NULL,
   `component` varchar(255) NOT NULL,
-  `restock_quantity` int NOT NULL
+  `threshold` int NOT NULL
 );
 
 CREATE TABLE `armoire` (
@@ -37,6 +37,8 @@ CREATE TABLE `armoire_stock` (
 
 CREATE TABLE `users` (
   `username` varchar(255) PRIMARY KEY NOT NULL,
+  `lastName` varchar(255) NOT NULL,
+  `firstName` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `mail` varchar(255) NOT NULL,
   `isAdmin` tinyint NOT NULL,
