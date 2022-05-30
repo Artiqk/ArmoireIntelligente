@@ -6,14 +6,18 @@ GRANT ALL PRIVILEGES ON *.* TO 'webAdmin'@localhost IDENTIFIED BY 'password';
 
 USE `armoire_intelligente`;
 
-CREATE TABLE `armoire` (
-  `ifa_id` varchar(255) PRIMARY KEY NOT NULL,
-  `id` int NOT NULL,
+CREATE TABLE `armoire_info` (
+  `stock_id` varchar(255) PRIMARY KEY NOT NULL,
+  `armoire_id` int NOT NULL,
   `floor_id` int NOT NULL,
   `area_id` int NOT NULL,
   `sensorType` varchar(255) NOT NULL,
   `component` varchar(255) NOT NULL,
   `restock_quantity` int NOT NULL
+);
+
+CREATE TABLE `armoire` (
+  `id` int PRIMARY KEY NOT NULL
 );
 
 CREATE TABLE `etat_armoire` (
@@ -47,8 +51,12 @@ CREATE TABLE `logs` (
   `updatedAt` datetime NOT NULL
 );
 
+ALTER TABLE `etat_armoire` ADD FOREIGN KEY (`armoire_id`) REFERENCES `armoire` (`id`);
+
+ALTER TABLE `logs` ADD FOREIGN KEY (`armoire_id`) REFERENCES `armoire` (`id`);
+
+ALTER TABLE `armoire_info` ADD FOREIGN KEY (`armoire_id`) REFERENCES `armoire` (`id`);
+
 ALTER TABLE `logs` ADD FOREIGN KEY (`user`) REFERENCES `users` (`username`);
 
-ALTER TABLE `armoire_stock` ADD FOREIGN KEY (`stock_id`) REFERENCES `armoire` (`ifa_id`);
-
-ALTER TABLE `armoire` ADD UNIQUE (ifa_id);
+ALTER TABLE `armoire_stock` ADD FOREIGN KEY (`stock_id`) REFERENCES `armoire_info` (`stock_id`);
