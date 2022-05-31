@@ -8,22 +8,12 @@ USE `armoire_intelligente`;
 
 CREATE TABLE `armoire_info` (
   `stock_id` varchar(255) PRIMARY KEY NOT NULL,
-<<<<<<< HEAD
   `armoire_id` int NOT NULL,
-  `floor_id` int NOT NULL,
-  `area_id` int NOT NULL,
-=======
-  `armoire` int NOT NULL,
   `floor` int NOT NULL,
   `area` int NOT NULL,
->>>>>>> 29255950481cab718363699856ee904e92d30eb6
   `sensorType` varchar(255) NOT NULL,
   `component` varchar(255) NOT NULL,
   `threshold` int NOT NULL
-);
-
-CREATE TABLE `armoire` (
-  `id` int PRIMARY KEY NOT NULL
 );
 
 CREATE TABLE `armoire` (
@@ -64,15 +54,7 @@ CREATE TABLE `logs` (
 );
 
 ALTER TABLE `etat_armoire` ADD FOREIGN KEY (`armoire_id`) REFERENCES `armoire` (`id`);
-
 ALTER TABLE `logs` ADD FOREIGN KEY (`armoire_id`) REFERENCES `armoire` (`id`);
-
 ALTER TABLE `armoire_info` ADD FOREIGN KEY (`armoire_id`) REFERENCES `armoire` (`id`);
-
 ALTER TABLE `logs` ADD FOREIGN KEY (`user`) REFERENCES `users` (`username`);
-
-<<<<<<< HEAD
 ALTER TABLE `armoire_stock` ADD FOREIGN KEY (`stock_id`) REFERENCES `armoire_info` (`stock_id`);
-=======
-ALTER TABLE `armoire_stock` ADD FOREIGN KEY (`stock_id`) REFERENCES `armoire_info` (`stock_id`);
->>>>>>> 29255950481cab718363699856ee904e92d30eb6
