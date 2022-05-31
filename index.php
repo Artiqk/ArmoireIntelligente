@@ -37,8 +37,8 @@
                     <label for="componenet"> Composant </label>
                     <input name="component" id="component" placeholder="Composant">
 
-                    <label for="restock_quantity"> Seuil </label>
-                    <input name="restock_quantity" id="restock_quantity" placeholder="Seuil">
+                    <label for="threshold"> Seuil </label>
+                    <input name="threshold" id="threshold" placeholder="Seuil">
                 </div>
                 
                 <div class="update">
