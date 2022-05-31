@@ -40,7 +40,9 @@ foreach ($postData as $data) { // Prepare values to put into the sql request
 }
 
 // SQL request that add values to database if row doesn't exist else it updates it
-$sql_request = "INSERT INTO armoire (ifa_id, id, floor_id, area_id, sensorType, component, restock_quantity) VALUES (" . $values . ") ON DUPLICATE KEY UPDATE sensorType = VALUES(sensorType), component = VALUES(component), restock_quantity = VALUES(restock_quantity);";
+$sql_request_armoire = "INSERT INTO armoire (id) VALUES (" + $_POST['armoire_id'] + ");";
+
+$sql_request_armoire_info = "INSERT INTO armoire (stock_id, armoire_id, floor_id, area_id, sensorType, component, restock_quantity) VALUES (" . $values . ") ON DUPLICATE KEY UPDATE sensorType = VALUES(sensorType), component = VALUES(component), restock_quantity = VALUES(restock_quantity);";
 
 // Create connection to MySQL database
 $conn = new mysqli("localhost", "webAdmin", "password", "armoire_intelligente");
@@ -49,7 +51,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-if ($conn->query($sql_request) === TRUE) {
+if ($conn->query($sql_request_armoire) === TRUE && $conn->query($sql_request_armoire_info) === TRUE) {
     echo "Record updated successfully";
 } else {
     echo "Error updating record: " . $conn->error; 
