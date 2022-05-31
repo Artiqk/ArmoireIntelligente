@@ -20,6 +20,7 @@ foreach($postDataName as $data) { // Iterate through input data to detect errors
 
 if ($error) {
     header("Location: index.php$getParams");
+    return 0;
 }
 
 foreach ($postDataName as $data) { // Get all POST data in an array
@@ -50,9 +51,6 @@ $conn = new mysqli("127.0.0.1", "webAdmin", "password", "armoire_intelligente");
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-
-// echo $sql_request_armoire . '<br>';
-// echo $sql_request_armoire_info;
 
 $conn->query($sql_request_armoire);
 $conn->query($sql_request_armoire_info);

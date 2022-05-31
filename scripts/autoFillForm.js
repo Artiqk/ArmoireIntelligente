@@ -1,6 +1,6 @@
 let url = new URL(window.location.href);
 
-let allParams = ['armoire_id', 'floor_id', 'area_id', 'sensor_type', 'component', 'restock_quantity'];
+let allParams = ['armoire_id', 'floor_id', 'area_id', 'sensor_type', 'component', 'threshold'];
 
 allParams.forEach(fillInputForm);
 
