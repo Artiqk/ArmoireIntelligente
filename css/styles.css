@@ -11,7 +11,14 @@ h1 {
 }
 
 
+label {
+    font-family: 'Roboto-Thin';
+    font-size: 1.5rem;
+}
+
+
 input, select {
+    display: inline-block;
     width: 30%;
     height: 5rem;
     margin-bottom: 5%;
@@ -25,9 +32,12 @@ div.update_form {
 }
 
 
-div.first_row, div.second_row, div.third_row {
-    display: flex;
-    justify-content: space-around;
+div.first_row label, div.second_row label, div.third_row label{
+    /* display: flex;
+    justify-content: space-around; */
+
+    display: block;
+    margin-bottom: 1vh;
 }
 
 
