@@ -8,7 +8,7 @@ massPayload = "M111, 241.2"
 
 test = temperaturePayload
 
-serial_conn = serial.Serial("/dev/ttyACM0", 115200)
+serial_conn = serial.Serial("/dev/ttyACM0", 9600)
 
 def updateTemperatureAndHumidity (data):
     data = data.replace('T', '')
@@ -49,11 +49,17 @@ while True:
     data = data.decode("utf-8")
     data = data[:-2]
 
-    if (test[0] == 'T'):
-        sql_query = updateTemperatureAndHumidity(test)
+    prefix = data[0]
+
+    # data = data.replace(prefix, '')
+
+    # print(data)
+
+    if (prefix == 'T'):
+        sql_query = updateTemperatureAndHumidity(data)
         print(sql_query)
     else:
-        sql_query = updateQuantity(test, test[0])
+        sql_query = updateQuantity(data, prefix)
         print(sql_query)
 
     cursor.execute(sql_query)

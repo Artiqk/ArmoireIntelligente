@@ -19,6 +19,7 @@ while True:
 
     sql_query = "SELECT username FROM users WHERE rfid_pass = '" + tag + "';"
 
+
     cursor.execute(sql_query)
 
     result = cursor.fetchall()
@@ -27,6 +28,7 @@ while True:
 
     if (len(result) > 0):
         user = result[0][0]
+        print(user)
         file = open("current_user.dat", "w")
         file.write(user)
         file.close()
