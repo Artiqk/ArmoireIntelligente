@@ -21,8 +21,22 @@ while True:
 
     cursor.execute(sql_query)
 
-    user = cursor.fetchall()[0][0]
+    result = cursor.fetchall()
     
-    print(user)
+    response = ""
+
+    if (len(result) > 0):
+        user = result[0][0]
+        file = open("current_user.dat", "w")
+        file.write(user)
+        file.close()
+        response = "OK"
+    else:
+        print("RFID TAG INCORRECT")
+        response = "NO"
+    
+    serial_conn.write(response.encode())
+
+
 
 serial_conn.close()

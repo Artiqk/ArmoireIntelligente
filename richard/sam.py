@@ -6,7 +6,7 @@ temperaturePayload = "T1,24.4,5.2,245,15.4"
 distancePayload = "D111,24.5"
 massPayload = "M111, 241.2"
 
-test = massPayload
+test = temperaturePayload
 
 serial_conn = serial.Serial("/dev/ttyACM0", 115200)
 
@@ -54,6 +54,7 @@ while True:
         print(sql_query)
     else:
         sql_query = updateQuantity(test, test[0])
+        print(sql_query)
 
     cursor.execute(sql_query)
     db.commit()
