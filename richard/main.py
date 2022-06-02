@@ -28,10 +28,7 @@ while True:
 
     if (len(result) > 0):
         user = result[0][0]
-        print(user)
-        file = open("current_user.dat", "w")
-        file.write(user)
-        file.close()
+        print(user + " authentified")
         response = "OK"
     else:
         print("RFID TAG INCORRECT")

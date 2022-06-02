@@ -2,12 +2,6 @@ import serial
 import mysql.connector
 import time
 
-temperaturePayload = "T1,24.4,5.2,245,15.4"
-distancePayload = "D111,24.5"
-massPayload = "M111, 241.2"
-
-test = temperaturePayload
-
 serial_conn = serial.Serial("/dev/ttyACM0", 9600)
 
 def updateTemperatureAndHumidity (data):
@@ -51,16 +45,15 @@ while True:
 
     prefix = data[0]
 
-    # data = data.replace(prefix, '')
-
-    # print(data)
-
     if (prefix == 'T'):
         sql_query = updateTemperatureAndHumidity(data)
-        print(sql_query)
+        print("Updated temperature and humidity")
     else:
         sql_query = updateQuantity(data, prefix)
-        print(sql_query)
+        print("Updated quantity")
 
-    cursor.execute(sql_query)
-    db.commit()
+    try:
+        cursor.execute(sql_query)
+        db.commit()
+    except:
+        print("Unexpected error while trying to updated the database")
