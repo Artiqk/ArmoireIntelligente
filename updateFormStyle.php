@@ -1,6 +1,6 @@
 <?php
 
-$getData = array('armoire_id', 'floor_id', 'area_id', 'sensor_type', 'component', 'restock_quantity');
+$getData = array('armoire_id', 'floor_id', 'area_id', 'sensor_type', 'component', 'threshold');
 
 foreach($getData as $data) {
     if (isset($_GET[$data]) && $_GET[$data] == 'error') {
