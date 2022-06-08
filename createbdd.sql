@@ -8,16 +8,16 @@ USE `armoire_intelligente`;
 
 CREATE TABLE `armoire_info` (
   `stock_id` varchar(255) PRIMARY KEY NOT NULL,
-  `armoire_id` int NOT NULL,
-  `floor` int NOT NULL,
-  `area` int NOT NULL,
+  `armoire` int unsigned NOT NULL,
+  `floor` int unsigned NOT NULL,
+  `area` int unsigned NOT NULL,
   `sensorType` varchar(255) NOT NULL,
   `component` varchar(255) NOT NULL,
-  `threshold` int NOT NULL
+  `threshold` int unsigned NOT NULL
 );
 
 CREATE TABLE `armoire` (
-  `id` int PRIMARY KEY NOT NULL
+  `id` int unsigned PRIMARY KEY NOT NULL
 );
 
 CREATE TABLE `etat_armoire` (
