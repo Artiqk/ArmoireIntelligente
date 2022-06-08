@@ -22,6 +22,7 @@
                         break;
                     case 2:
                         echo "<h3> Une erreur est survenue lors de la connexion à la base de donnée. </h3>";
+                        break;
                 }
             }
         ?>
