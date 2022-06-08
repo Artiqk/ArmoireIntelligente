@@ -20,7 +20,7 @@ foreach($postDataName as $data) { // Iterate through input data to detect errors
 
 if ($error) {
     header("Location: index.php$getParams");
-    return 0;
+    exit();
 }
 
 foreach ($postDataName as $data) { // Get all POST data in an array
@@ -45,8 +45,13 @@ $sql_request_armoire = "INSERT IGNORE INTO armoire (id) VALUES (" . $_POST['armo
 
 $sql_request_armoire_info = "INSERT INTO armoire_info (stock_id, armoire, floor, area, sensorType, component, threshold) VALUES (" . $values . ") ON DUPLICATE KEY UPDATE sensorType = VALUES(sensorType), component = VALUES(component), threshold = VALUES(threshold);";
 
-// Create connection to MySQL database
-$conn = new mysqli("127.0.0.1", "webAdmin", "password", "armoire_intelligente");
+try {
+    // Create connection to MySQL database
+    $conn = new mysqli("127.0.0.1", "webAdmin", "password", "armoire_intelligente");
+} catch (Exception $e) {
+    header("Location: index.php?update=2");
+    exit();
+}
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -57,9 +62,11 @@ $secondUpdate = $conn->query($sql_request_armoire_info);
 
 
 if ($firstUpdate && $secondUpdate) {
-    header("Location: index.php?update=1");
-} else {
     header("Location: index.php?update=0");
+    exit();
+} else {
+    header("Location: index.php?update=1");
+    exit();
 }
 
 $conn->close();

@@ -8,9 +8,23 @@
         </style>
     </head>
     <body>
-        <?php require_once('./addDropdownMenu.php'); ?>
-
         <h1>Administration Page</h1>
+
+        <?php
+            if (isset($_GET['update'])) {
+
+                switch ($_GET['update']) {
+                    case 0: 
+                        echo "<h2> La base de donnée à bien été mise à jour. </h2>";
+                        break;
+                    case 1:
+                        echo "<h3> Une erreur est survenue lors de la mise à jour de la base de donnée. </h3>";
+                        break;
+                    case 2:
+                        echo "<h3> Une erreur est survenue lors de la connexion à la base de donnée. </h3>";
+                }
+            }
+        ?>
 
         <form action="updateDatabase.php" method="POST">
             <div class="update_form">
